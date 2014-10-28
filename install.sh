@@ -23,6 +23,7 @@ echo "Add channel pear.drush.org"
 sudo pear channel-discover pear.drush.org
 echo "Instalando drush"
 sudo pear install drush/drush
+sudo drush
 
 echo "Instalando MYSQL SERVER"
 sudo apt-get -y install mysql-server
@@ -74,11 +75,3 @@ sudo mkdir -p /www
 sudo chown $USER:www-data /www
 echo "Pasta dos projetos configuradas em /www"
 echo "Necessario reiniciar o computador"
-
-
-
-
-
-
-
-
