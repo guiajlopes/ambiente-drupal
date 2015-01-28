@@ -19,6 +19,7 @@ sudo sed -i 's/#prepend/prepend/' dhclient.conf
 # sudo service network-manager restart
 
 
+sudo apt-get install php-pear -y
 echo "Add channel pear.drush.org"
 sudo pear channel-discover pear.drush.org
 echo "Instalando drush"
