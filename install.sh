@@ -13,11 +13,14 @@ echo "Instalando DNS MASC"
 sudo apt-get install dnsmasq
 echo "Configurando DNS MASC"
 sudo touch /etc/dnsmasq.d/local
+# Remove o arquivo local caso exista.
+sudo rm /etc/dnsmasq.d/local
+# Escreve nova config.
 sudo echo address=/l/127.0.0.1 >> /etc/dnsmasq.d/local
+# Vai para pasta dhcp.
+cd /etc/dhcp
+# Retira o # do prepend.
 sudo sed -i 's/#prepend/prepend/' dhclient.conf
-# echo "Resetando a rede do computador"
-# sudo service network-manager restart
-
 
 sudo apt-get install php-pear -y
 echo "Add channel pear.drush.org"
@@ -74,5 +77,9 @@ sudo service php5-fpm restart
 echo "Criando pagina do projeto"
 sudo mkdir -p /www
 sudo chown $USER:www-data /www
+
+echo "Resetando a rede do computador"
+sudo service network-manager restart
+
 echo "Pasta dos projetos configuradas em /www"
-echo "Necessario reiniciar o computador"
+echo "Caso não acesse o dominio .l é necessario reiniciar o computador"
